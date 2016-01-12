@@ -42,8 +42,12 @@ sms.send = function(phone, message, options, success, failure) {
     );
 };
 
-sms.test = function (success, failure) {
-    exec(success, failure, 'Sms', 'test', []);
+sms.startWatch = function (success, failure) {
+    exec(success, failure, 'Sms', 'startWatch', []);
+};
+
+sms.stopWatch = function (success, failure) {
+    exec(success, failure, 'Sms', 'stopWatch', []);
 };
 
 module.exports = sms;
