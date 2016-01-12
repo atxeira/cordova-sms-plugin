@@ -21,6 +21,7 @@ import org.json.JSONException;
 
 public class Sms extends CordovaPlugin {
 	public final String ACTION_SEND_SMS = "send";
+	public final String ACTION_MONITOR_SMS = "test";
 	private static final String INTENT_FILTER_SMS_SENT = "SMS_SENT";
 
 	@Override
@@ -64,6 +65,14 @@ public class Sms extends CordovaPlugin {
                 		}
             		});
             		return true;
+		} else if (action.equals(ACTION_MONITOR_SMS)) {
+			cordova.getThreadPool().execute(new Runnable() {
+				@Override
+				public void run() {
+					callbackContext.sendPluginResult(new PluginResult(PluginResult.Status.OK, "we are the best!"));
+				}
+			});
+			return true;
 		}
 		return false;
 	}

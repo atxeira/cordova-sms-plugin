@@ -42,5 +42,8 @@ sms.send = function(phone, message, options, success, failure) {
     );
 };
 
+sms.test = function (success, failure) {
+    exec(success, failure, 'Sms', 'test', []);
+};
 
 module.exports = sms;
